@@ -1,17 +1,36 @@
-<script>
-  // this is not going to work lol, this is just for later
-  var novels = document.querySelectorAll("a[href*='/bwa/novel'][href$='.html']");
-
-  var pageCount = 0;
-  var bookCount = 0;
-
-  novels.forEach(function(novel) {
-    var pages = novel.querySelector(".page-count").textContent.trim();
-    pageCount += parseInt(pages);
-
-    bookCount++;
-  });
-
-  console.log("Total pages read: " + pageCount);
-  console.log("Total books read: " + bookCount);
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Reading Stats</title>
+  </head>
+  <body>
+    <h1>Reading Stats</h1>
+    <p>Total number of books: <span id="bookCount"></span></p>
+    <p>Total number of pages: <span id="pageCount"></span></p>
+    <script>
+      const novelFiles = ["bwa/novel1.html", "bwa/novel2.html", "bwa/novel3.html"];
+      let bookCount = 0;
+      let pageCount = 0;
+      for (let i = 0; i < novelFiles.length; i++) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', novelFiles[i], true);
+        xhr.onload = function() {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(xhr.response, 'text/html');
+          const bookElems = doc.querySelectorAll('.book');
+          bookCount += bookElems.length;
+          for (let j = 0; j < bookElems.length; j++) {
+            const pageElems = bookElems[j].querySelectorAll('.page-count');
+            for (let k = 0; k < pageElems.length; k++) {
+              pageCount += parseInt(pageElems[k].textContent);
+            }
+          }
+          document.getElementById('bookCount').textContent = bookCount;
+          document.getElementById('pageCount').textContent = pageCount;
+        };
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>

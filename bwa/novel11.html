@@ -45,7 +45,13 @@
 		<p>Start Date: 2023-02-03</p>
 		<p>End Date: 2023-02-03</p>
 		<p>Rating: 9/10</p>
-		<button class="back-button" onclick="window.location.href='../../index.html'">back</button>
+		<button class="back-button" onclick="goBack()">back</button>
+
+        <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
 	</div>
 </body>
 </html>

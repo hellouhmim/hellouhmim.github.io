@@ -1,0 +1,17 @@
+<script>
+  // this is not going to work lol, this is just for later
+  var novels = document.querySelectorAll("a[href*='/bwa/novel'][href$='.html']");
+
+  var pageCount = 0;
+  var bookCount = 0;
+
+  novels.forEach(function(novel) {
+    var pages = novel.querySelector(".page-count").textContent.trim();
+    pageCount += parseInt(pages);
+
+    bookCount++;
+  });
+
+  console.log("Total pages read: " + pageCount);
+  console.log("Total books read: " + bookCount);
+</script>

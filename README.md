@@ -7,3 +7,4 @@ to do -
 
 - include all volumes for multiple volume books (bake, nise, owari etc)
 - proper alt text (xd)
+- notes

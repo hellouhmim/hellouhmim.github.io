@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>book</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+			background-color: black;
+            color: #ffffff;
+		}
+		
+		.container {
+			background-color: #1c1c1c;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			max-width: 600px;
+			text-align: center;
+		}
+
+		.back-button {
+			margin-top: 20px;
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.2s;
+		}
+
+		.back-button:hover {
+			background-color: #3E8E41;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="../aaa/novel21.jpg" alt="Novel 1" width="300">
+		<h1>Musubimonogatari</h1>
+		<p>Page Count: 313</p>
+		<p>Start Date: 2023-05-06</p>
+		<p>End Date: 2023-05-08</p>
+		<p>Rating: 9/10</p>
+		<button class="back-button" onclick="goBack()">back</button>
+
+        <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+	</div>
+</body>
+</html>
